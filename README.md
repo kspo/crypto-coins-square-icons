@@ -1,2 +1,5 @@
-# crypto-coins-square-icons
-All crypto coins as square background
+# Cryptocurrency Squared Icons
+
+The official cryptocurrency icon pack for all your favourite cryptocurrencies.
+
+This repository contains all the cryptocurrency icons available on coinmarketcap.com
