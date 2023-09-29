@@ -1,3 +1,4 @@
+# Cryptocurrency Squared Icons
 
 |Gradient|Normal|
 |-------|-----|
@@ -7,9 +8,10 @@
 |<img src="gradient/ada.svg" width="50px"/>| <img src="normal/ada.svg" width="50px"/>|
 |<img src="gradient/sol.svg" width="50px"/>| <img src="normal/sol.svg" width="50px"/>| 
 |<img src="gradient/usdt.svg" width="50px"/>| <img src="normal/usdt.svg" width="50px"/>| 
-|<h2>483 Crypto Icons</h2>|
 
-# Cryptocurrency Squared Icons
+
+
+# 483 Crypto Icons
 
 This project contains 483 crypto coins icons at all
 
