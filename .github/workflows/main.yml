@@ -14,7 +14,7 @@ jobs:
       - uses: kspo/crypto-coins-square-icons@main
         with:
           deps_repo_owner:          kspo
-          deps_repo_branch:         master
+          deps_repo_branch:         main
           deps_repo_read_token:     ${{ github.token }}
 
           stat_repo_owner:          kspo
