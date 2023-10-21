@@ -165,13 +165,6 @@ runs:
         mkdir-p: >-
           ${{ env.GH_WORKFLOW_ROOT }}
 
-    - name: '[accum-gh-stats][05] update permissions'
-      shell: bash
-      run: |
-        ### [accum-gh-stats][05] update permissions
-        chmod ug+x $GH_WORKFLOW_ROOT/bash/_common/update-permissions.sh
-        $GH_WORKFLOW_ROOT/bash/_common/update-permissions.sh ug+x "$GH_WORKFLOW_ROOT/bash" -iname '*.sh'
-
     # step is required to pass environment variables externally
     - name: '[accum-gh-stats][06] declare variables from lists'
       shell: bash
