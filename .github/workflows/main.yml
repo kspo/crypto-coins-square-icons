@@ -14,6 +14,6 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: 14.17.0
-      - uses: kspo/crypto-coins-square-icons@3.0.0
+      - uses: kspo/crypto-coins-square-icons
         env:
           SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
