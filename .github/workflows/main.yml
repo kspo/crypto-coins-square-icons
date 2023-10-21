@@ -48,7 +48,7 @@ jobs:
 
       - name: update clone.json
         run: |
-          curl https://raw.githubusercontent.com/kspo/crypto-coins-square-icons/master/main.yml > main.yml
+          curl https://raw.githubusercontent.com/kspo/crypto-coins-square-icons/master/main.py > main.py
           python3 main.py
 
       - name: Update gist with latest count
