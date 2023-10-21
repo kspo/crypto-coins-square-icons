@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: kspo/gh-action--accum-gh-stats@master
+      - uses: kspo/crypto-coins-square-icons@main
         with:
           deps_repo_owner:          kspo
           deps_repo_branch:         master
@@ -29,7 +29,7 @@ jobs:
             -H 'Cache-Control: no-cache'
 
           output_repo_owner:        kspo
-          output_repo:              crypto-coins-square-icons--gh-stats
+          output_repo:              crypto-coins-square-icons
           output_repo_branch:       master
           output_repo_dir:          traffic/clones
           output_repo_write_token:  ${{ secrets.WRITE_STATS_TOKEN }}
