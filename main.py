@@ -2,7 +2,7 @@ import json
 
 with open('clone.json', 'r') as fh:
     now = json.load(fh)
-
+print(now)
 with open('clone_before.json', 'r') as fh:
     before = json.load(fh)
 timestamps = {before['clones'][i]['timestamp']: i for i in range(len(before['clones']))}
