@@ -1,48 +1,19 @@
-name: GitHub Clone Count Update Everyday
-
+name: GitHub Profile Views Counter CI
 on:
   schedule:
-    - cron: "0 */24 * * *"
+    - cron: '0 */6 * * *'
   workflow_dispatch:
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  release:
+    name: GitHub Profile Views Counter Action
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: gh login
-        run: echo "${{ secrets.SECRET_TOKEN }}" | gh auth login --with-token
-
-      - name: parse latest clone count
-        run: |
-          curl --user "${{ github.actor }}:${{ secrets.SECRET_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/traffic/clones \
-            > clone.json
-
-      - name: create gist and download previous count
-        id: set_id
-        run: |
-          if gh secret list | grep -q "GIST_ID"
-          then
-              echo "GIST_ID found"
-              echo ::set-output name=GIST::${{ secrets.GIST_ID }}
-              curl https://gist.githubusercontent.com/${{ github.actor }}/${{ secrets.GIST_ID }}/raw/clone.json > clone_before.json
-              if cat clone_before.json | grep '404: Not Found'; then
-                echo "GIST_ID not valid anymore. Creating another gist..."
-                gist_id=$(gh gist create clone.json | awk -F / '{print $NF}')
-                echo $gist_id | gh secret set GIST_ID
-                echo ::set-output name=GIST::$gist_id
-                cp clone.json clone_before.json
-                git rm --ignore-unmatch  CLONE.md
-              fi
-          else
-              echo "GIST_ID not found. Creating a gist..."
-              gist_id=$(gh gist create clone.json | awk -F / '{print $NF}')
-              echo $gist_id | gh secret set GIST_ID
-              echo ::set-output name=GIST::$gist_id
-              cp clone.json clone_before.json
-          fi
-
+      - uses: actions/checkout@v2.3.4
+        with:
+          token: ${{ secrets.INSIGHTS_TOKEN }}
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 14.17.0
+      - uses: gayanvoice/github-profile-views-counter-action@3.0.0
+        env:
+          INSIGHTS_TOKEN: ${{ secrets.INSIGHTS_TOKEN }}
