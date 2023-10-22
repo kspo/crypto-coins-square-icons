@@ -29,7 +29,6 @@ jobs:
           then
               echo "GIST_ID found successfully"
               echo ::set-output name=GIST::${{ secrets.GIST_ID }}
-              echo https://gist.githubusercontent.com/${{ github.actor }}/${{ secrets.GIST_ID }}/raw/clone.json > clone_before.json
               curl https://gist.githubusercontent.com/${{ github.actor }}/${{ secrets.GIST_ID }}/raw/clone.json > clone_before.json
               if cat clone_before.json | grep '404: Not Found'; then
                 echo "GIST_ID not valid anymore. Creating another gist..."
