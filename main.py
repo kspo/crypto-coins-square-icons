@@ -5,6 +5,8 @@ with open('clone.json', 'r') as fh:
 print(now)
 with open('clone_before.json', 'r') as fh:
     before = json.load(fh)
+
+print(before)
 timestamps = {before['clones'][i]['timestamp']: i for i in range(len(before['clones']))}
 
 latest = dict(before)
